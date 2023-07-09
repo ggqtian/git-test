@@ -1,0 +1,28 @@
+/*
+       增
+           add(Object obj)
+           addAll(Collection coll)
+       删
+           remove(Object obj)
+           remove(int Index)
+       改
+           set(int Index,Object ele)
+       查
+           get(int Index)
+       插
+           add(int Index,Object ele)
+           addAll(int Index,Collection coll)
+       长度
+           size()
+       遍历
+           iterator()
+           增强for
+           一般for
+/*   list及其实现类的特点
+     java.until.Collection:存储一个个数据
+        子接口list:存储有序的，可重复的数据（动态数组）
+            ArrayList(主要实现类)  线程不安全的，但效率高，底层是object[]数组存储，在对于需要频繁进行查找，添加数据时效率高
+            LinkedList          底层使用双向链表进行存储，对于需要进行频繁插入删除操作的功能是效率高
+            Vector（古老的）              线程安全的， 但效率低，底层是object[]数组存储
+        子接口Set
+* */

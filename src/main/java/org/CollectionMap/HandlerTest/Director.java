@@ -1,6 +1,6 @@
-package org.example;
+package org.CollectionMap.HandlerTest;
 
-public class Director extends Handler{
+public class Director extends Handler {
     @Override
     public void handle(int num) {
         if(num<=10000){

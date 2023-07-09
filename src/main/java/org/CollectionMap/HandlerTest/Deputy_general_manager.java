@@ -1,6 +1,6 @@
-package org.example;
+package org.CollectionMap.HandlerTest;
 
-public class Deputy_general_manager extends  Handler{
+public class Deputy_general_manager extends Handler {
     @Override
     public void handle(int num) {
         if(num<=100000){

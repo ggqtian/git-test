@@ -1,4 +1,4 @@
-package org.example.noteSafe;
+package org.CollectionMap.noteSafe;
 
 class SaleTickets implements Runnable {
     int ticket = 100;

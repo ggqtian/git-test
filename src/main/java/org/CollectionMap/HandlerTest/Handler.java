@@ -1,4 +1,4 @@
-package org.example;
+package org.CollectionMap.HandlerTest;
 public abstract class Handler {
     protected Handler next;
     public void setNext(Handler next){

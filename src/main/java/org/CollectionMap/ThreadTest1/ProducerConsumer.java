@@ -1,6 +1,4 @@
-package org.example.ThreadTest1;
-
-import java.util.concurrent.Callable;
+package org.CollectionMap.ThreadTest1;
 
 /*
 线程安全问题：因为生产者与消费者共享数据缓冲区，产生安全问题。不过这个问题可以使用同步解决。

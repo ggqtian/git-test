@@ -1,4 +1,4 @@
-package org.example.ThreadTest;
+package org.CollectionMap.ThreadTest;
 
 class EvenNumPrint implements Runnable {
 

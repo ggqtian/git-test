@@ -1,4 +1,4 @@
-package org.example.ThreadTest;
+package org.CollectionMap.ThreadTest;
 
 public class threadTest01 {
     static class PrintNum extends Thread {

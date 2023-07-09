@@ -1,4 +1,4 @@
-package org.example;
+package org.CollectionMap.HandlerTest;
 
 public class Client {
     public static void main(String[] args) {

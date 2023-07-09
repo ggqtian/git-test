@@ -1,4 +1,4 @@
-package org.example;
+package org.CollectionMap.HandlerTest;
 
 public class Department_manager extends Handler {
 
