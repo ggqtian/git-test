@@ -1,0 +1,42 @@
+ArrayList特点：实现了list接口，存储有序的，可重复的数据
+              底层使用了object[]数组，是线程不安全的
+源码分析：jdk7版本:
+        ArrayList<String>  list=new ArrayList<>();//Object []element=new Object[10];初始化长度为10的数组
+        list.add("AA");     //element(0)="AA";
+        list.add("BB");     //element(1)="BB";
+        ......
+        当要添加第11个元素时，底层element数组已满则会进行扩容操作，扩充到原来的1.5倍，并将原有数组元素复制到新数组
+        jdk8版本:
+        ArrayList<String>  list=new ArrayList<>();//Object []element=new Object[]{};//初始化0长度数组
+        list.add("AA");     //Object []element=new Object[10]->element(0)="AA";
+        list.add("BB");     //element(1)="BB";
+        ......
+        当要添加第11个元素时，底层element数组已满则会进行扩容操作，扩充到原来的1.5倍，并将原有数组元素复制到新数组
+
+
+HashMap:  数组+链表+红黑树
+
+        jdk1.7
+        源码分析:
+        HashMap <String,Integer>map=new Hashmap;//创建对象的的过程中会初始化一个  Entry[] table=new Entry[16];
+                                                //key-value 被封装为 HashMap.Entry 类型，而这个类型实现了 Map.Entry 接口
+
+        ...
+        map.put("AA",78);//将AA 和 78 封装到一个Entry对象中，考虑到添加到table数组中
+                         //头插法：将要插入的entry对象的next赋值为旧的entry对象
+        ...
+
+        添加或者修改的过程
+        将(key1,value1)添加到map中
+        首先要调用key1类所在的HashCode()方法，计算key1所对应的哈希值1，此哈希值1经过某种哈希算法后得到哈希值2，
+        哈希值2再经过某种算法(indexFor())之后，就确定了value在table中的索引位置
+           1.1如果此索引位置i数组上没有元素，则直接添加(key1,value1)
+           1.2如果此索引位置i数组上有(key2,value2)，则需要继续比较key1和key2的哈希值2---->哈希冲突
+            2.1如果key1和key2的哈希值2不相同的话，则(key1,value1)添加成功
+            2.2如果key1和key2的哈希值2相同的话，则需调用key1，key2类中的equals方法，即equals(key2)
+                3.1如果true则key1与key2相同，将value1覆盖value2
+                3.2如果false则key1预备key2不相同，则(key1,value1)添加成功
+        随着元素不断添加会出现扩容问题应满足条件：
+        (size>threshold)&&(null!=table[i])//    final float loadFactor;
+        当元素的个数达到临界值(->数组的长度*加载因子(一般为0.75))   16*0.75=12 ----->
+        默认扩充为2倍

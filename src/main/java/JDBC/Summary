@@ -1,0 +1,54 @@
+preparedStatement的使用总结
+    步骤总结:
+        1.注册驱动
+        2.获取连接
+        3.编写sql语句，动态值使用占位符句
+        4.创建preparedStatement，并传入sql语句
+        5.占位符赋值
+        6.发送sql语句并获取结果
+        7.结果集解析
+        8.关闭资源
+    使用api总结:
+        1.注册驱动
+        方案一:使用静态方法，但是会注册两次
+        DriverManager.registerDriver(new Driver());
+        方案二:利用反射出发静态代码块
+        Class.forName("com.sql.cj.jdbc.Driver");
+
+        2.获取连接
+        Connection connection=DriverManager.gerConnection();
+        1.(String url,String user,String password)
+        2.(String url,Properties info(user,password))
+        3.(String url?user=账号&password=密码))
+
+        3.编写sql语句，动态值使用占位符句
+
+        4.创建Statement
+           1.静态的：Statement statement = connection.createStatement();
+           2.预编译的：PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+        5.占位符赋值
+        preparedStatement。setObject(index,值);
+
+        6.发送sql语句并获取结果
+        int =executeUpdate(); --影响行数
+        ResultSet =executeQuery();--结果集对象
+
+        7.结果集解析
+        移动光标指向数据   next()
+        获取列的数据   get类型(int 列的下角标|列的别名)
+        获取列的信息  getMetadata();ResultSetMetadata对象，包含的是列的信息
+                    resultSetMetadata.getColumnCount();
+                    resultSetMetadata.getColumnLebal(index);
+
+        8.关闭资源
+
+
+
+
+
+
+
+
+
+

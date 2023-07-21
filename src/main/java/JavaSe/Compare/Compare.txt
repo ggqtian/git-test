@@ -1,0 +1,22 @@
+->实现对象的排序:自然排序和定制排序
+
+方式一:实现comparable接口
+    步骤:具体的类A实现comparable接口
+        重写comparable接口中的compareTo(Object obj)方法,在此方法中指出类A的比较标准
+        创建类A的多个实例进行大小的比较和排序
+
+
+
+方法二:实现comparator接口的方法
+    步骤:创建一个实现了comparator接口的实现类A
+        实现类A中要求重写了compare(Objetct obj1,Object obj2)方法在，此方法中指明要比较大小的关系
+        创建此类的对象，并将此类传入相应方法的参数位置
+
+
+对比:
+    自然排序:单一的，唯一的，一劳永逸的，接口为comparable方法为compareTo(Object obj)方法
+    定制排序:灵活的，多样的，临时的，接口为comparator接口，compare(Objetct obj1,Object obj2)
+
+
+
+
